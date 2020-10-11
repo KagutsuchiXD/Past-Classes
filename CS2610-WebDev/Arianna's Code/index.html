@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <title>Weather Voting API </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+<div id = "general">
+    <div id ="app">
+        <h1 v-if="(forecast_list == null) && (daily_list == null)">Loading... </h1>
+        <div v-else >
+            <h3 id = "likely"> Likely Count: {{likely_count}} </h3>
+            <h3 id = "unlikely"> Unlikely Count: {{unlikely_count}} </h3>
+            <h3 id = "def"> Default Count: {{default_count}} </h3>
+            <div id = "daily">
+                <h2>Conditions on {{curr_date}}</h2>
+                Temperature: {{daily_list.main.temp}} *F <br>
+                Humidity: {{daily_list.main.humidity}}% <br>
+                Pressure: {{daily_list.main.pressure }} hpa <br>
+                Condition: {{daily_list.weather[0].description}}
+            </div>
+            <div v-for = "n in count" id = "wrapper">
+                <div v-if = "forecast_list.list[n] != null">
+                    <div v-on:click="cycle(n-1, $event)">
+                        <div v-bind:style = "styles[n-1]" >
+                            Condition on {{dates[n]}} <br>
+                            Temperature: {{forecast_list.list[n].main.temp}} *F <br>
+                            Humidity: {{forecast_list.list[n].main.humidity}}% <br>
+                            Pressure: {{forecast_list.list[n].main.pressure}} hpa<br>
+                            Condition: {{forecast_list.list[n].weather[0].description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="weather.js"></script>
+</body>
+
+</html>

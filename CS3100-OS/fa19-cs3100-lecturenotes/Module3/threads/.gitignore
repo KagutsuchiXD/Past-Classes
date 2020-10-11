@@ -1,0 +1,6 @@
+threads
+threads_py
+threads_py.c
+threads_scm
+*.core
+*.class

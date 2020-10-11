@@ -1,0 +1,15 @@
+T: Constant Linear Velocity implies that data are stored with uniform density
+F: Constant Linear Velocity implies that the rotation speed of the disk is constant
+T: Constant Angular Velocity implies that data are stored with varying density
+
+T: Error correction codes detect and protect from data corruption
+T: A hard drive's advertised capacity is likely much smaller than it's absolute capacity
+F: A solid-state drive cannot fail because it has no moving parts
+
+T: Seek Time is the delay to position the read/write head over the track
+T: Rotational Latency is the delay for the sector to rotate to the disk head
+F: The Random Access Time of a spinning disk depends only upon the Rotational Latency
+
+F: RAID using only data striping will have improved reliability
+T: RAID utilizing only mirroring will not have improved I/O performance
+T: RAID with both striping and parity improves both reliability and performance

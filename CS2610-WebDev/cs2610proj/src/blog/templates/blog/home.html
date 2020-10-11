@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+		
+		<title>Home</title>
+	</head>
+	
+	<body>
+	
+	<h1>Titan's Status</h1>
+	
+	<h2>Recent Posts</h2>
+	{% if latest_post_list %}
+    {% for blog in latest_post_list|slice:"0:3" %}
+       <p class = "blogpost">
+	    <span style = "color: #e6b800; float: left;"><a href="{% url 'blog:entry' blog.id %}">{{blog.post_date}}</a></span></br>
+	   <span style = "color: #e6b800; font-size: 30px;">{{blog.title}} </br></span>{{  blog.post_content|truncatewords:200  }} </br>
+	   </br> <span style = "color: #e6b800; float: right;">Comment Count: 
+	   {{ blog.comment_set.count }}</span></p>
+    {% endfor %}
+	{% else %}
+    <p>No recent posts are available.</p>
+	{% endif %}
+	<a href="{% url 'blog:home'%}"  class="btn">
+		Home
+	</a>
+	<a href="{% url 'blog:TecTips'%}" class="btn">
+		Tech Tips
+	</a>
+	<a href="{% url 'blog:Bio'%}" class="btn">
+		About Me
+	</a>
+	<a href="{% url 'blog:archive'%}"  class="btn">
+		Archives
+	</a>
+	
+	</body>
+</html>

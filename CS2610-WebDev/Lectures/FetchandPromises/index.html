@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Fetching data from Quandl with fetch()</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="shadowed green nice-box">
+    <h2>Consuming data from a web API with fetch()</h2>
+    <pre>
+   Here is the URL to Quandl's API that we'll base our app upon:
+
+   https://www.quandl.com/api/v3/datasets/LBMA/GOLD.json?api_key=o8A-AZSvTssXC8RkJooE&start_date=2018-11-01&end_date=2018-11-07
+
+   We can either visit this URL directly in the browser, or run it from the
+   command line in Anaconda. By running it on in the command line we can filter
+   it through a pretty-printer which makes it easier for us to see the
+   structure of the JSON result.
+
+   Note the single quotes around the URL - the URL contains ampersands and
+   question marks, which are special characters to the command line shell.
+   The single quotes make the shell ignore them.
+
+   curl 'https://www.quandl.com/api/v3/datasets/LBMA/GOLD.json?api_key=o8A-AZSvTssXC8RkJooE&start_date=2018-11-01&end_date=2018-11-07' | python -m json.tool
+
+   Remember that curl is our handy-dandy command-line HTTP tool.
+   python -m json.tool is a program which pretty-prints JSON data.
+		   </pre>
+</div>
+
+<hr/>
+
+<ul>
+    <li> <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">MDN JSON</a> </li>
+
+    <li> <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">Using XMLHttpRequest</a> </li>
+    <li> <a href="https://docs.quandl.com/">Quandl API Documentation</a> </li>
+</ul>
+
+<div class="shadowed blue nice-box flex-rows">
+    <div class="flex-rows">
+        <select id="dataset">
+
+            <option value="visa">Visa Stock</option>
+
+            <option value="ge">Genereal Electric Stock</option>
+
+            <option value="treasury">US Treasury Par Yield Curve</option>
+
+            <option value="poptot">UN Global Indicators Population Totals</option>
+
+            <option value="slcpop">City Population for SLC</option>
+
+            <option value="nycpop"> City Population for NYC</option>
+
+        </select>
+        <button type="button" onclick="go_fetch()">Fetch!</button>
+    </div>
+    <div>
+        <p id="quandl">Awaiting your command...</p>
+    </div>
+</div>
+
+<script src="quandl.js"></script>
+
+</body>
+</html>

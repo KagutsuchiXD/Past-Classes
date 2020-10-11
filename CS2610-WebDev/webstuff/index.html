@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Interactive DOM in JavaScript</title>
+    <script src="slider.js"></script>
+</head>
+
+<body>
+<div class="red fib-container">
+    <p>An interactive list of divs</p>
+    <p>As you move the slider, the old list is destroyed and a new list of divs are created to replace it.</p>
+    <form id="list-of-divs">
+        <label for="list-slider" id="list-label">List(0)</label>
+        <input id="list-slider" type="range"
+               min="0" max="50" value="0"
+               oninput="listSlider(this)"
+        />
+    </form>
+
+    <div class="fib-list">
+        <div class="fib-item">
+            <p>0</p>
+        </div>
+    </div>
+</div>
+
+<div class="green fib-container">
+    <p>An interactive binary tree of divs</p>
+    <p>As you move the slider, the old tree is destroyed and a new tree of divs are created to replace it.</p>
+    <form>
+        <label for="tree-slider" id="tree-label">Tree(0)</label>
+        <input id="tree-slider" type="range"
+               min="0" max="6" value="0"
+               oninput="treeSlider(this)"
+        />
+    </form>
+
+    <div id="tree-of-divs" class="fib-container">
+        <div class="fib-item">
+            <p>0</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

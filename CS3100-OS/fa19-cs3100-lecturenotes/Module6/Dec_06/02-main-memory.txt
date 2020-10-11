@@ -1,0 +1,19 @@
+T: "External Fragmentation" are gaps between processes' memory
+T: "Internal Fragmentation" is when a process has unused memory within its allocation
+F: Pages must be contiguously allocated
+
+T: A memory address can be bound to a location at compile time
+T: A memory address can be bound to a location at load time
+F: A memory address can be bound to a location at scheduling time
+
+T: A "hole" is a block of available memory from which the OS may draw
+T: You can "run out of memory" if there are not enough contiguous holes available
+F: The "best fit" strategy is faster than "first fit"
+
+F: A frame is a fixed-size block of logical memory
+T: A page is a fixed-size block of logical memory
+T: Pages may be shared among processes
+
+T: Modern CPUs deal only with logical addresses
+T: The "Page Table" maps logical addresses to physical addresses
+F: Physical memory is your RAM plus your hard disk

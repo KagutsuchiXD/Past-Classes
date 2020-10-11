@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="myStyles.css">
+    <title>Axolotl</title>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	
+  </head>
+  <body>
+	
+	<h2>What can you do for the</h2>
+	<h1>The Axolotl?</h1>
+	<img alt="broken image :(" src="http://i.imgur.com/D1sWnhf.jpg" />
+	
+	<div>
+	<div class="alert alert-success font-weight-bold">
+		<button class="close" data-dismiss="alert">&times;</button>
+		<h1>Let's take action together!</h1>
+		<p>
+			There is something each of us can do.
+		</p>
+		<div></div>
+		<p>Pick an action below!</p>
+	</div>
+	<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+		Take Action!
+	</button>
+	<div class="dropdown-menu">
+		<h6 class="dropdown-header">Get Involved!</h6>
+		<a class="dropdown-item" data-toggle="modal" data-target="#adopt">Adopt!</a>
+		<a class="dropdown-item" data-toggle="modal" data-target="#clean">Clean the Ocean!</a>
+		<div class="dropdown-divider"></div>
+		<h6 class="dropdown-header">Give us money!</h6>
+		<a class="dropdown-item" data-toggle="modal" data-target="#donate">Donate!</a>
+	</div>
+	</div>
+	
+	<div class="navBar">
+		<a href="secondAndHalfPage.html" class="btn btn-primary">
+			Previous Page
+		</a>
+		<a href="fourthPage.html" class="btn btn-primary">
+			Next Page
+		</a>
+		
+		<div class="float-right legalText">Copyright 2019</div>
+	</div>
+	
+	<!-- Adopt Modal -->
+	<div class="modal fade" id="adopt" tabindex="-1" role="dialog" aria-labelledby="adoptLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="adoptLabel">Adopt</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			They are cute, aren't they?
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<!-- Donate Modal -->
+	<div class="modal fade" id="donate" tabindex="-1" role="dialog" aria-labelledby="donateLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="donateLabel">Donate!</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			Cash can be given directly to Thomas O'Reilly.
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<!-- Clean Modal -->
+	<div class="modal fade" id="clean" tabindex="-1" role="dialog" aria-labelledby="cleanLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="cleanLabel">Clean</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			Ambitious one, aren't you! Go for it!
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+  </body>
+</html>

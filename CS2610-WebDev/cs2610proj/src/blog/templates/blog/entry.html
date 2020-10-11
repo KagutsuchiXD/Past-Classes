@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+		
+		<title>Posts</title>
+	</head>
+	
+	<body>
+	
+	<h3>{{blog.title}}</h3>
+	<div class = "personal"> Posted by: {{blog.author}} </br>
+	On: {{blog.post_date}}</div>
+	<p class = "blogpost" > {{blog.post_content}} </p>
+	{%for comment in blog.comment_set.all%}
+	<p class = "comment"> {{comment.comment_content}} </br> </br><span style = "color: #e6b800; float: right;"> {{comment.username}},  {{comment.email}}</span> </br>
+	<span style = "color: #e6b800; float:right;">{{comment.comment_date}}</span></p>
+	{%endfor%}
+
+        <h3>Post a Comment</h3>
+		<div class="form">
+        <form id="comment_form" method="post" action="{% url 'blog:add_comment' blog.id %}">
+            {% csrf_token %}
+			<label for = "Comment"> Comment </label></br>
+				<input type = "text", name = "Comment", id = "Comment", style="height:200px;width:500px;"> </br>
+				<label for = "Username"> Username </label></br>
+				<input type = "text", name = "Username", id = "Username"> </br>
+				<label for = "EmailAddress"> Email Address </label></br>
+				<input type = "text", name = "EmailAddress", id = "EmailAddress"></br>
+            <input type="submit" name="submit" value="Create Comment" />
+        </form>
+		</div>
+	<a href="{% url 'blog:home'%}"  class="btn">
+		Home
+	</a>
+	<a href="{% url 'blog:TecTips'%}" class="btn">
+		Tech Tips
+	</a>
+	<a href="{% url 'blog:Bio'%}" class="btn">
+		About Me
+	</a>
+	<a href="{% url 'blog:archive'%}"  class="btn">
+		Archives
+	</a>
+	
+	</body>
+</html>

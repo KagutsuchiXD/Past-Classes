@@ -1,0 +1,5 @@
+hello_x86
+hello_arm
+hello_c_*
+hello_c
+*.o

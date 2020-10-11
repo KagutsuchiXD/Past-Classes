@@ -1,0 +1,30 @@
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Assign2'
+    }
+}
+
+run {   /* Run with: gradle run -PrunArgs='arg1 arg2 arg3' */
+    if (project.hasProperty('runArgs')) {
+        args project.getProperty('runArgs').split()
+    }
+}
+
+// Define the main class for the application
+mainClassName = 'Assign2'

@@ -1,0 +1,10 @@
+build
+
+# ignore object files
+*.o
+
+# ignore the 'main' executable
+main
+
+# ignore core dumps
+core

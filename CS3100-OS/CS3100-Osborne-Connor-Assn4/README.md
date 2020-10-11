@@ -1,0 +1,1 @@
+To complete this assignment I worked in collaboration with Jake Lauritsen, and Arianna Bunnell.

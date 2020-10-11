@@ -1,0 +1,19 @@
+T: Priority scheduling can result in starvation
+T: Shortest-remaining-time-first scheduling can result in starvation
+F: First-come, first-served scheduling can result in starvation
+
+T: The dispatcher handles switching the context
+T: The dispatcher handles switching to user mode
+F: The dispatcher handles all scheduling decisions
+
+T: A process switching from running to ready is preemptive
+T: A process switching from waiting to ready state is preemptive
+F: A process switching from running to waiting is preemptive
+
+F: Priority scheduling is known to result in the convoy effect
+T: FCFS scheduling is known to result in the convoy effect
+T: "Soft" processor affinity allows process to migrate between CPUs
+
+T: In RR scheduling, longer time slices (quantums) result in less overhead
+F: Symmetric multiprocessing is 1 CPU scheduling processes for the entire system
+T: Asymmetric multiprocessing is 1 CPU scheduling processes for the entire system

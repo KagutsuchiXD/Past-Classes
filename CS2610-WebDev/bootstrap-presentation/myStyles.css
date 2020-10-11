@@ -1,0 +1,28 @@
+/*TODO: fix the css on the index.html page, and put it in here, instead of that style tag!*/
+.titleText {
+			font-size: 48px;
+		}
+
+		.legalText {
+			font-size: 10px;
+		}
+
+		body {
+			padding: 30px;
+		}
+		img {
+			display: block;
+			height: 200px;
+			padding-bottom: 10px;
+		}
+
+		.navBar{
+			padding-top: 10px;
+		}
+		h1, h2{
+			margin: 0px
+		}
+		
+		.middle {
+			text-align: center;
+		}

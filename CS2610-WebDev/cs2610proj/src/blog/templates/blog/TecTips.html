@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8"/>
+     <link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+     <title>Tech Tips</title>
+  </head>
+  <body>
+  
+  <h1>Titan Tech Tips</h1>
+  
+  <h4>Git Command Cheat Sheet</h4>
+  
+  <table>
+	<tr>
+		<th>Git Command</th>
+		<th>Description</th>
+		<th>Example</th>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init?_ga=2.94345310.2130023877.1548615924-189008381.1543474339">
+		Init</a></td>
+		<td>create a new local repository:</td>
+		<td><code>git init &lt;directory name&gt; </code></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone?_ga=2.62698351.2130023877.1548615924-189008381.1543474339">
+		Clone</a></td>
+		<td>Create a working copy of a local repository: <br><br> For a remote server, use:</td>
+		<td><code>git clone /path/to/repository <br><br> git clone username@host:/path/to/repository</code></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/syncing?_ga=2.55882600.2130023877.1548615924-189008381.1543474339#git-remote">
+		Connect to Remote Repository</a></td>
+		<td>If you haven't connected your local repository to a remote server, add the server to be able to push to it:</td>
+		<td><code>git remote add origin &lt;server&gt;</code></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/saving-changes?_ga=2.126334030.2130023877.1548615924-189008381.1543474339#git-add">
+		Add</a></td>
+		<td>add a file to index before commiting</td>
+		<td><code>git add &lt;filename&gt;</code></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/saving-changes?_ga=2.59096174.2130023877.1548615924-189008381.1543474339#git-commit">
+		Commit</a></td>
+		<td>Commit changes to head (but not yet to the remote repository):</td>
+		<td><code>git commit -m "Commit message"</code></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/syncing?_ga=2.56086632.2130023877.1548615924-189008381.1543474339#git-push">
+		Push</a></td>
+		<td>Send changes to the master branch of your remote repository:</td>
+		<td><code>git push origin master</code></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository?_ga=2.33996642.2130023877.1548615924-189008381.1543474339#git-status">
+		Status</a></td>
+		<td>List the files you've changed and those you still need to add or commit:</td>
+		<td><code>git status</code></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/using-branches/git-checkout">
+		Checkout</a></td>
+		<td>Create a new branch and switch to it: <br><br> Switch from one branch to another:</td>
+		<td><code>git checkout -b &lt;branch_name&gt; <br><br> git checkout &lt;branch_name&gt;</code></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.atlassian.com/git/tutorials/syncing/git-pull">
+		Pull</a></td>
+		<td>Fetch and merge changes on the remote server to your working directory:</td>
+		<td><code>git pull &lt;remote&gt;</code></td>
+	</tr>
+	<!--<tr>
+		<td><a href=""></a></td>
+		<td></td>
+		<td><code></code></td>
+	</tr>-->
+  </table>
+	<div>
+		<h4>The current time is {{ now }}.</h4>
+	</div>
+	<a href="{% url 'blog:home'%}"  class="btn">
+		Home
+	</a>
+	<a href="{% url 'blog:TecTips'%}" class="btn">
+		Tech Tips
+	</a>
+	<a href="{% url 'blog:Bio'%}" class="btn">
+		About Me
+	</a>
+	<a href="{% url 'blog:archive'%}"  class="btn">
+		Archives
+	</a>
+	
+	</body>
+</html>

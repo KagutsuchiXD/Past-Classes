@@ -1,0 +1,133 @@
+{% load static %}
+.btn{
+	padding: 20px 20px;
+	text-align: center; 
+	text-decoration: none;
+	display: inline-block;
+	color: #e6b800;
+	background-color: #600080;
+	border: 3px solid #e6b800;
+	font-size: large;
+}
+.comment{
+	color: #e6b800;
+}
+
+#youth{
+	display: block;
+	height: 200px;
+	margin: 20px;
+}
+#return{
+	display: block;
+	height: 200px;
+	margin: 20px;
+	float: right;
+}
+#gauntlet{
+	display: block;
+	height: 200px;
+	margin: 20px;
+}
+#order{
+	display: block;
+	height: 300px;
+	margin: 20px;
+	float: right;
+}
+#cube{
+	display: block;
+	height: 200px;
+	margin: 20px;
+}
+#vs{
+	display: block;
+	height: 200px;
+	margin: 20px;
+	float: right;
+}
+#peace{
+	display: block;
+	height: 400px;
+	margin-left:auto;
+	margin-right:auto;
+	left:0;
+	right:0;
+}
+
+body {
+	padding: 50px;
+	background-image: url(infinitystones.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+h1 {
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	left:0;
+	right:0;
+	
+	color: #e6b800;
+	font-size: 98px;
+	height: 100px;
+	position: fixed;
+	top: -75px;
+}
+h2{
+	color: #e6b800;
+}
+h4 {
+	color: #e6b800;
+}
+h3{
+	color: #e6b800;
+}
+p{
+	text-indent: 40px;
+	color: white;
+}
+li{
+	color: #e6b800;
+}
+a:link, a:visited, a:active{
+	text-align: center; 
+	color: #e6b800;
+}
+a:hover{
+	font-style: italic;
+	padding: 20px 20px;
+	text-align: center; 
+	text-decoration: none;
+	display: inline-block;
+	color: #e6b800;
+	background-color: #600080;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+td, th {
+  border: 3px solid #000000;
+  text-align: center;
+  padding: 8px;
+}
+tr{
+	background-color: #001a4d;
+}
+li{
+	clear: right;
+}
+br{
+	clear: right;
+}
+code{
+	font-weight: bold;
+}
+img{
+	border: 3px solid #000000;
+}	

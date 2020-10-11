@@ -1,0 +1,23 @@
+T: The page table itself is kept in memory
+F: The translation look-aside buffer itself is kept in memory
+T: The translation look-aside buffer is a high-speed, associative memory cache
+
+F: A system's virtual address space can be no larger than its physical RAM
+T: Demand paging is when a process is loaded one page at a time, only as needed
+T: Pure demand paging loads an entire process only as needed
+
+F: A page fault happens when an invalid address is requested
+T: Pages which are loaded into physical memory frames are "memory resident"
+T: A lazy swapper only brings pages into memory when they are actually needed
+
+F: System load is the max # of processes system can accommodate efficiently
+T: Belady's Anomaly is when adding more frames leads to more page faults
+T: Copy On Write is when a pager defers copying shared pages until one process changes it
+
+T: Thrashing is when a process spends more time paging than executing the process
+F: Swapping is when a process spends more time paging than executing the process
+T: The Optimal Page Replacement algorithm is impossible to implement IRL
+
+T: Changes to a shared memory mapped file are automatically persisted to the file
+F: Changes to a private memory mapped file are automatically persisted to the file
+T: Memory mapped files can be treated as arrays in code

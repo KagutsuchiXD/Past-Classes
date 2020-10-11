@@ -1,0 +1,11 @@
+T: Mutual Exclusion is a necessary conditions for deadlock
+T: Circular Wait is a necessary conditions for deadlock
+F: Atomic Operations are a necessary condition for deadlock
+
+T: Resources are represented on a RAG
+T: Processes are represented on a RAG
+F: Permissions are represented on a RAG
+
+F: Modern OSes try to prevent deadlock from happening
+T: Systems in a "safe state" are not prone to deadlock
+T: The Banker's Algorithm is a way to avoid deadlock
