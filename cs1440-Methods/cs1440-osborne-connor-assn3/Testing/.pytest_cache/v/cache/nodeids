@@ -1,0 +1,4 @@
+[
+  "TestCard.py::TestCard::test_getID",
+  "TestCard.py::TestCard::test_getSize"
+]

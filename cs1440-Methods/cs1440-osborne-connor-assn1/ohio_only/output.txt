@@ -1,0 +1,97 @@
+Reading in the databases...
+Done!
+
+[============]
+[Final Report]
+[============]
+
+Statistics over all industries in 2017:
+=========================================================
+Count of FIPS areas in report        90
+
+Gross annual wages                   $265,651,620,107
+Count of unique Annual Wages         90
+Count of distinct Annual Wages       90
+Per capita average wage              $49,022.13
+Cache County's Rank                  #25
+
+Gross number of establishments       299,657
+Count of unique num of establ.       88
+Count of distinct num of establ.     89
+Cache County's Rank                  #18
+
+Gross annual employment level        5,419,014
+Count of unique employment levels    90
+Count of distinct employment levels  90
+Cache County's Rank                  #22
+
+Top 5 FIPS areas by Total Annual Wages
+---------------------------------------------------------
+ 1. Franklin County, Ohio                $40,943,495,262
+ 2. Cuyahoga County, Ohio                $40,232,187,524
+ 3. Hamilton County, Ohio                $30,321,396,405
+ 4. Summit County, Ohio                  $12,864,802,859
+ 5. Montgomery County, Ohio              $11,759,927,848
+
+Top 5 FIPS areas by Annual Average # of Establishments
+---------------------------------------------------------
+ 1. Cuyahoga County, Ohio                35,921
+ 2. Franklin County, Ohio                32,097
+ 3. Hamilton County, Ohio                23,877
+ 4. Unknown Or Undefined, Ohio           18,131
+ 5. Summit County, Ohio                  14,321
+
+Top 5 FIPS areas by Annual Average Employment Level
+---------------------------------------------------------
+ 1. Franklin County, Ohio                749,025
+ 2. Cuyahoga County, Ohio                720,084
+ 3. Hamilton County, Ohio                515,161
+ 4. Summit County, Ohio                  266,989
+ 5. Montgomery County, Ohio              254,680
+
+
+
+Statistics over the software publishing industry in 2017:
+=========================================================
+Count of FIPS areas in report        59
+
+Gross annual wages                   $513,628,700
+Count of unique Annual Wages         22
+Count of distinct Annual Wages       23
+Per capita average wage              $92,031.66
+Cache County's Rank                  #8
+
+Gross number of establishments       814
+Count of unique num of establ.       12
+Count of distinct num of establ.     21
+Cache County's Rank                  #17
+
+Gross annual employment level        5,581
+Count of unique employment levels    20
+Count of distinct employment levels  22
+Cache County's Rank                  #8
+
+Top 5 FIPS areas by Total Annual Wages
+---------------------------------------------------------
+ 1. Hamilton County, Ohio                $103,085,907
+ 2. Cuyahoga County, Ohio                $94,708,452
+ 3. Montgomery County, Ohio              $89,027,601
+ 4. Franklin County, Ohio                $76,036,420
+ 5. Unknown Or Undefined, Ohio           $75,053,444
+
+Top 5 FIPS areas by Annual Average # of Establishments
+---------------------------------------------------------
+ 1. Unknown Or Undefined, Ohio           200
+ 2. Franklin County, Ohio                105
+ 3. Cuyahoga County, Ohio                98
+ 4. Hamilton County, Ohio                79
+ 5. Summit County, Ohio                  34
+
+Top 5 FIPS areas by Annual Average Employment Level
+---------------------------------------------------------
+ 1. Montgomery County, Ohio              1,565
+ 2. Cuyahoga County, Ohio                1,060
+ 3. Hamilton County, Ohio                808
+ 4. Franklin County, Ohio                779
+ 5. Unknown Or Undefined, Ohio           456
+

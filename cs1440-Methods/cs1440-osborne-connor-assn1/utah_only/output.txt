@@ -1,0 +1,97 @@
+Reading in the databases...
+Done!
+
+[============]
+[Final Report]
+[============]
+
+Statistics over all industries in 2017:
+=========================================================
+Count of FIPS areas in report        29
+
+Gross annual wages                   $66,629,721,895
+Count of unique Annual Wages         29
+Count of distinct Annual Wages       29
+Per capita average wage              $46,574.99
+Cache County's Rank                  #6
+
+Gross number of establishments       98,907
+Count of unique num of establ.       27
+Count of distinct num of establ.     28
+Cache County's Rank                  #6
+
+Gross annual employment level        1,430,590
+Count of unique employment levels    29
+Count of distinct employment levels  29
+Cache County's Rank                  #6
+
+Top 5 FIPS areas by Total Annual Wages
+---------------------------------------------------------
+ 1. Salt Lake County, Utah               $36,087,529,587
+ 2. Utah County, Utah                    $10,123,333,371
+ 3. Davis County, Utah                   $5,535,846,425
+ 4. Weber County, Utah                   $4,231,082,590
+ 5. Washington County, Utah              $2,215,560,424
+
+Top 5 FIPS areas by Annual Average # of Establishments
+---------------------------------------------------------
+ 1. Salt Lake County, Utah               44,238
+ 2. Utah County, Utah                    15,896
+ 3. Davis County, Utah                   8,364
+ 4. Weber County, Utah                   5,988
+ 5. Washington County, Utah              5,638
+
+Top 5 FIPS areas by Annual Average Employment Level
+---------------------------------------------------------
+ 1. Salt Lake County, Utah               684,426
+ 2. Utah County, Utah                    230,575
+ 3. Davis County, Utah                   126,008
+ 4. Weber County, Utah                   103,834
+ 5. Washington County, Utah              62,897
+
+
+
+Statistics over the software publishing industry in 2017:
+=========================================================
+Count of FIPS areas in report        16
+
+Gross annual wages                   $1,101,124,684
+Count of unique Annual Wages         6
+Count of distinct Annual Wages       7
+Per capita average wage              $109,499.27
+Cache County's Rank                  #4
+
+Gross number of establishments       568
+Count of unique num of establ.       6
+Count of distinct num of establ.     9
+Cache County's Rank                  #6
+
+Gross annual employment level        10,056
+Count of unique employment levels    6
+Count of distinct employment levels  7
+Cache County's Rank                  #5
+
+Top 5 FIPS areas by Total Annual Wages
+---------------------------------------------------------
+ 1. Utah County, Utah                    $554,492,906
+ 2. Salt Lake County, Utah               $515,999,890
+ 3. Davis County, Utah                   $11,368,318
+ 4. Cache County, Utah                   $6,900,708
+ 5. Washington County, Utah              $6,383,761
+
+Top 5 FIPS areas by Annual Average # of Establishments
+---------------------------------------------------------
+ 1. Salt Lake County, Utah               352
+ 2. Utah County, Utah                    131
+ 3. Davis County, Utah                   31
+ 4. Summit County, Utah                  13
+ 5. Washington County, Utah              13
+
+Top 5 FIPS areas by Annual Average Employment Level
+---------------------------------------------------------
+ 1. Utah County, Utah                    4,842
+ 2. Salt Lake County, Utah               4,768
+ 3. Davis County, Utah                   174
+ 4. Washington County, Utah              117
+ 5. Cache County, Utah                   107
+

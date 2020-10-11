@@ -1,0 +1,97 @@
+Reading in the databases...
+Done!
+
+[============]
+[Final Report]
+[============]
+
+Statistics over all industries in 2017:
+=========================================================
+Count of FIPS areas in report        201
+
+Gross annual wages                   $403,482,206,364
+Count of unique Annual Wages         201
+Count of distinct Annual Wages       201
+Per capita average wage              $50,687.77
+Cache County's Rank                  #29
+
+Gross number of establishments       544,201
+Count of unique num of establ.       179
+Count of distinct num of establ.     190
+Cache County's Rank                  #25
+
+Gross annual employment level        7,960,149
+Count of unique employment levels    195
+Count of distinct employment levels  198
+Cache County's Rank                  #25
+
+Top 5 FIPS areas by Total Annual Wages
+---------------------------------------------------------
+ 1. Maricopa County, Arizona             $101,355,844,508
+ 2. Alameda County, California           $57,018,137,454
+ 3. Contra Costa County, California      $24,651,313,816
+ 4. Jefferson County, Alabama            $18,700,249,210
+ 5. Pima County, Arizona                 $16,562,485,473
+
+Top 5 FIPS areas by Annual Average # of Establishments
+---------------------------------------------------------
+ 1. Maricopa County, Arizona             96,333
+ 2. Alameda County, California           62,447
+ 3. Fresno County, California            34,853
+ 4. Contra Costa County, California      31,820
+ 5. Pima County, Arizona                 18,633
+
+Top 5 FIPS areas by Annual Average Employment Level
+---------------------------------------------------------
+ 1. Maricopa County, Arizona             1,927,372
+ 2. Alameda County, California           771,652
+ 3. Fresno County, California            381,997
+ 4. Contra Costa County, California      366,720
+ 5. Pima County, Arizona                 364,174
+
+
+
+Statistics over the software publishing industry in 2017:
+=========================================================
+Count of FIPS areas in report        201
+
+Gross annual wages                   $22,618,201,109
+Count of unique Annual Wages         111
+Count of distinct Annual Wages       112
+Per capita average wage              $181,174.61
+Cache County's Rank                  #66
+
+Gross number of establishments       6,879
+Count of unique num of establ.       41
+Count of distinct num of establ.     65
+Cache County's Rank                  #85
+
+Gross annual employment level        124,842
+Count of unique employment levels    90
+Count of distinct employment levels  100
+Cache County's Rank                  #63
+
+Top 5 FIPS areas by Total Annual Wages
+---------------------------------------------------------
+ 1. Santa Clara County, California       $7,171,816,937
+ 2. San Mateo County, California         $2,319,568,867
+ 3. Los Angeles County, California       $1,429,360,786
+ 4. San Francisco County, California     $1,203,477,743
+ 5. Fulton County, Georgia               $1,183,009,280
+
+Top 5 FIPS areas by Annual Average # of Establishments
+---------------------------------------------------------
+ 1. Unknown Or Undefined, Florida        642
+ 2. Santa Clara County, California       421
+ 3. Unknown Or Undefined, California     363
+ 4. Los Angeles County, California       326
+ 5. San Francisco County, California     317
+
+Top 5 FIPS areas by Annual Average Employment Level
+---------------------------------------------------------
+ 1. Santa Clara County, California       21,085
+ 2. San Mateo County, California         11,722
+ 3. Fulton County, Georgia               8,686
+ 4. Los Angeles County, California       8,291
+ 5. Orange County, California            7,476
+

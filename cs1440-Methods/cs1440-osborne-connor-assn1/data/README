@@ -1,0 +1,14 @@
+Get the latest data (2017) from BLS
+    https://www.bls.gov/cew/datatoc.htm
+
+Put the file containing FIPS area codes into this directory under the name
+area_titles.csv
+    https://data.bls.gov/cew/doc/titles/area/area_titles.csv
+
+2017 Annual Averages Single File CSV.
+Unzip the file into this directory, leaving it's name as
+2017.annual.singlefile.csv
+    https://data.bls.gov/cew/data/files/2017/csv/2017_annual_singlefile.zip
+
+The interpretation of the columns within that file is explained here
+	https://data.bls.gov/cew/doc/layouts/csv_annual_layout.htm

@@ -1,0 +1,4 @@
+{
+  "TestCard.py::TestCard::test_getID": true,
+  "TestCard.py::TestCard::test_getSize": true
+}
