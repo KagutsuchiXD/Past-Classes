@@ -1,0 +1,13 @@
+Slope for Highschool Algorithm: 2.078721218550986
+Slope for DC 4 Subproblem Algorithm: 1.992220515039902
+Slope for DC 3 Subproblem Algorithm: 1.6007651606736872
+
+The slopes confirm our mathematical analysis of the algorithms we did in class.
+
+The n^{1.59} becomes faster than the other algorithms when the problem size reaches a polynomial of degree 256.
+
+C Multipliers:
+
+C for DC with 4 subproblems = 2^(2.078721218550986) / 2^(1.992220515039902) = 1.06179165172
+
+C for DC with 3 subproblems = 2^(2.078721218550986) / 2^(1.6007651606736872) = 1.39276905856

@@ -1,0 +1,4 @@
+I think the graph appears the way it does because the DP version of our algorithm is basically linear in runtime.
+This is why the runtime is so short compared to the memoizing version which is still recursive meaning it's runtime grows
+dependent on the input size. Th large fluctuations in the runtime for the memoizing algorithm are probaly due to 
+some sets of item sizes fiting more easily into the knapsacks than others.

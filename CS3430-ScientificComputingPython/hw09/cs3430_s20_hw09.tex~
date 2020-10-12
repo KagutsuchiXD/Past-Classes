@@ -1,0 +1,321 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+
+\begin{document}
+
+\title{CS 3430: SciComp with Py \\ 
+Assignment 7\\
+Image Indexing and Retrieval}
+\author{
+Vladimir Kulyukin\\
+Department of Computer Science\\
+Utah State University}
+\date{February 25, 2017}
+\maketitle
+
+\section{Learning Objectives}
+
+\begin{enumerate}
+ \item IP
+ \item I/O
+ \item BGR, HSV, and Grayscale (GSL) Color Spaces
+ \item OpenCV
+ \item Persistent Objects
+\end{enumerate}
+
+\section{Introduction}
+
+In this assignment, we will implement a simple image indexing and retrieval engine. An image retrieval
+task can be formulated as follows. Given a collection of images, index each image in the collection 
+in terms of some features present in the image. This step is called {\it indexing}. The output of
+the indexing step is a collection index. This index can be an SQL database, a text file, 
+or a persistent object such as a dictionary. Given an input image and a collection index, find and 
+display the image most similar to the input image. This step is called {\it retrieval}. Of course,
+we can relax the similarity retrieval requirement and retrieve the top 10/20/100 most similar images. 
+But, for simplicity, we will keep the retrieval confined to just one image in this assignment.
+
+\section{Indexing Images}
+
+The attached zip archive for this assignment contains two image directories \verb|car| and \verb|car_test|.
+The directory \verb|car| contains 255 images of various streets in Logan that I took with a PiCam attached
+to an RPi in my Wrangler when Vikas Reddy, an M.S. student of mine, and I were working on a real-time 
+lane detection project. We will use the images in \verb|car| to create three persistent index objects. 
+The \verb|car_test| directory contains a smaller set of 23 images that we will use as input images.
+
+In the BGR space, an image $I$ can be split into the Blue ($B$), Green ($G$), and Red ($R$) channels,
+as was shown in class. Each of these channels is also an image of the same dimensions as $I$. For each 
+row $r$ in $I$ we can compute three means: the mean value of the row in $B$, the mean value of the row 
+in $G$, and the mean value of the row in $R$. The index of $I$ is a list of 3-tuples 
+$(\mu^{B}_r, \mu^{G}_r, \mu^{R}_r)$, where $r$ ranges from 0 upto and the last
+row in $I$ and $\mu^{B}_r$, $\mu^{G}_r$, $\mu^{R}_r$ are the blue, green, and red means for row $r$. 
+Let us look at a simple example. Suppose that $I$ is a 2x3 image.
+
+\begin{verbatim}
+           [[[b0, g0, r0], [b1, g1, r1], [b2, g2, r2]],
+            [[b3, g3, r3], [b4, g4, r4], [b5, g5, r5]]]
+\end{verbatim}
+
+After the image is split into the $B$, $G$, and $R$ channels, the channels will look as follows:
+
+\begin{verbatim}
+           B = [[b0, b1, b2], [b3, b4, b5]]
+           G = [[g0, g1, g2], [g3, g4, g5]]
+           R = [[r0, r1, r2], [r3, r4, r5]]
+\end{verbatim}
+
+The BGR index of $I$ is then computed as follows:
+
+\begin{verbatim}
+           bgri = [((b0+b1+b2)/3, (g0+g1+g2)/3, (r0+r1+r2)/3),
+                   ((b3+b4+b5)/3, (g3+g4+g5)/3, (r3+r4+r5)/3)]
+\end{verbatim}
+
+Similarly, in the HSV space, the image $I$ can be split into the Hue ($H$), Saturation ($S$), and Value ($V$) channels. 
+Suppose, again, $I$ is a 2x3 image. Then the channels will look as follows:
+
+\begin{verbatim}
+           H = [[h0, h1, h2], [h3, h4, h5]]
+           S = [[s0, s1, s2], [s3, s4, s5]]
+           V = [[v0, v1, v2], [v3, v4, v5]]
+\end{verbatim}
+
+The HSV index of $I$ is then computed as
+
+\begin{verbatim}
+           hsvi = [((h0+h1+h2)/3, (s0+s1+s2)/3, (v0+v1+v2)/3),
+                   ((h3+h4+h5)/3, (s3+s4+s5)/3, (v3+v4+v5)/3)]
+\end{verbatim}
+
+The image $I$ can also be converted to grayscale, in which case it will have only one value per pixel.
+
+\begin{verbatim}
+           [[g0, g1, g2],
+            [g3, g4, g5]]
+\end{verbatim}
+
+In this case, the grayscale index of $I$ consists of only two means:
+
+\begin{verbatim}
+            gsli = [(g0+g1+g2)/3, (g3+g4+g5)/3]
+\end{verbatim}
+
+If the image $I$ is saved in \verb|cars/16_07_02_14_21_00_orig.png|, then each of the indices 
+can be saved in a separate dictionary. 
+
+\begin{verbatim}
+            BGR_INDEX = {}
+            HSV_INDEX = {}
+            GSL_INDEX = {}
+            BGR_INDEX['cars/16_07_02_14_21_00_orig.png'] = bgri
+            HSV_INDEX['cars/16_07_02_14_21_00_orig.png'] = hsvi
+            GSL_INDEX['cars/16_07_02_14_21_00_orig.png'] = gsli
+\end{verbatim}
+
+We can generalize the steps described above for a directory of images by implementing the function
+
+\begin{verbatim}
+  def index_img_dir(imgdir):
+     for imgp in generate_file_names(r'.+\.(jpg|png|JPG)', imgdir):
+       print('indexing ' + imgp)
+       index_img(imgp)
+       print(imgp + ' indexed')
+\end{verbatim}
+
+This function takes a directory of images, and then, through a call to the generator
+\verb|generate_file_names| indexes each image path in the directory. The function $index_img$ computes
+the BGR index and saves it in \verb|BGR_INDEX| under the \verb|imgp| key, computes the HSV index
+and saves it in \verb|HSV_INDEX| under the \verb|imgp| key, and computes the GSL index and saves
+it in \verb|GSL_INDEX| under the \verb|imgp| key. After all the indices are computed, the three collection 
+indices, i.e., \verb|BGR_INDEX|, 
+\verb|HSV_INDEX|, and \verb|GSL_INDEX| are pickled into the user specified files for future use.
+
+\begin{verbatim}
+     ap = argparse.ArgumentParser()
+     ap.add_argument('-imgdir', '--imgdir', required = True, help = 'image directory')
+     ap.add_argument('-bgr', '--bgr', required = True, help = 'bgr index file')
+     ap.add_argument('-hsv', '--hsv', required = True, help = 'hsv index file')
+     ap.add_argument('-gsl', '--gsl', required = True, help = 'gsl index file')
+     args = vars(ap.parse_args())
+  
+     if __name__ == '__main__':
+       index_img_dir(args['imgdir'])
+       with open(args['bgr'], 'wb') as bgrfile:
+         pickle.dump(BGR_INDEX, bgrfile)
+       with open(args['hsv'], 'wb') as hsvfile:
+         pickle.dump(HSV_INDEX, hsvfile)
+       with open(args['gsl'], 'wb') as gslfile:
+         pickle.dump(GSL_INDEX, gslfile)
+       print('indexing finished')
+\end{verbatim}
+
+If we save our code in \verb|image_index.py|, we can execute it as follows:
+
+\begin{verbatim}
+$ python image_retrieval.py -imgdir car/ -bgr carbgr.pck -hsv carhsv.pck -gsl cargsl.pck
+\end{verbatim}
+
+After the indexing is done, the files \verb|../carbgr.pck|, \verb|../carhsv.pck|, and \verb|../cargsl.pck| will
+contain the pickled dictionaries \verb|BGR_INDEX|, \verb|HSV_INDEX|, and \verb|GSL_INDEX|, respectively.
+
+\section{Retrieving Images}
+
+Given an input image $I$ we 1) unpickle the pickled dictionaries \verb|BGR_INDEX|, \verb|HSV_INDEX|, 
+and \verb|GSL_INDEX|; 2) compute the BGR, HSV, and GSL indices of the input image $I$; 3) match the 
+indices of the input image against the corresponsing indices in the unpickled dictionaries; and 4) return the paths to the
+three top matching images and the similarity scores, i.e., the path to the top BGR match, the path to the top HSV 
+match, and the path to the top GSL match. In addition, we will display the input image and the three 
+top matching images in separate windows and wait for the user to press a key before all the windows
+disappear. If we save our code in \verb|image_retrieval.py|, then figure \ref{fig:HW07Img01} shows 
+the four sample images displayed in response to the following command. The output also prints the
+paths and the scores of the top matching images from the three indices. Note the the \verb|HSV| and 
+\verb|GSL| retrievals look much more sensible than the \verb|BGR| retrieval. This is because the similarity
+metric described below is straightfoward but naive. But it also illustrates the fact that in
+many circumstances colors can be misleading to CV algorithms.
+
+\begin{verbatim}
+$ python image_retrieval.py -i car_test/img22.png -bgr carbgr.pck -hsv carhsv.pck -gsl cargsl.pck
+[('../cs3430_images/car/16_07_02_14_21_37_orig.png', 0.74547970061506985)]
+[('../cs3430_images/car/17_02_21_22_09_01_orig.png', 0.72790654048996917)]
+[('../cs3430_images/car/16_07_02_14_21_37_orig.png', 0.75240571452849869)]
+\end{verbatim}
+
+\begin{figure}[ht!]
+\scalebox{0.4}{\includegraphics{pics/hw07_img01}}
+\caption{Sample windows with four images: original, BGR, HSV, and GSL}
+\label{fig:HW07Img01}
+\end{figure}
+
+So, how do we actually compute the three matching scores? Let us continue with our example of
+2x3 images and suppose that our input image, $I$, has been transformed into the following three indexes:
+\verb|bgri|, \verb|hsvi|, and \verb|gsli|.
+
+\begin{verbatim}
+   bgri = [(b0, g0, r0)
+           (b1, g1, r1)]
+           
+   hsvi = [(h0, s0, v0),
+           (h1, s1, v1)]
+           
+   gsli = [gsl0, gsl1]
+\end{verbatim}
+
+The values in the above three indexes are the means of the corresponding rows. For example, in \verb|bgri|,
+the values in column 0 are the blue averges in rows 0 and 1 of $I$ in the BGR space, i.e., \verb|b0| and \verb|b1|. 
+The values in column 1 are the green averages in rows 0 and 1 of $I$ in the BGR space, i.e., \verb|g0| and \verb|g1|. 
+Finally, the averages in column 2 are the red averages in rows 0 and 1 of $I$ in the BGR space, i.e., \verb|r0| 
+and \verb|r1|.
+
+In \verb|hsvi|, the values in column 0 are the hue averges in rows 0 and 1 of $I$ in the HSV space, i.e., \verb|h0| 
+and \verb|h1|. The values in column 1 are the saturation averages in rows 0 and 1 of $I$ in the HSV space, 
+i.e., \verb|s0| and \verb|s1|. Finally, the averages in column 2 are the value averages in rows 0 and 1 of $I$
+in the HSV space, i.e., \verb|v0| and \verb|v1|.
+
+In \verb|gsli|, \verb|gsl0| is the average of the grayscale values in row 0 of $I$ in the GSL space and
+\verb|gsl1| is the average of the grayscale values in row 1 of $I$ in the GSL space.
+
+Let us suppose that some image $P$ is represented in the three unpickled indexes, i.e., \verb|BGR_INDEX|,
+\verb|HSV_INDEX|, and \verb|GSL_INDEX|, as follows:
+
+\begin{verbatim}
+   pbgr = [(pb0, pg0, pr0)
+           (pb1, pg1, pr1)]
+           
+   phsv = [(ph0, ps0, pv0),
+           (ph1, ps1, pv1)]
+           
+   pgsl = [pgsl0, pgsl1]
+\end{verbatim}
+
+We compute the three matching scores between $I$ and $P$, i.e., the scores in the BGR, HSV, and GSL spaces, 
+column by column. Specifically, the BGR score is computed as follows:
+
+\begin{equation}
+blue\_sim = \frac{\sum_{i=0}^{1}(b_{i} \times pb_{i})} {\sqrt {\sum_{i=0}^{2}(b_{i}^{2})} 
+\times \sqrt{\sum_{i=0}^{2}(pb_{i}^{2})} }
+\end{equation}
+
+\begin{equation}
+green\_sim = \frac{\sum_{i=0}^{1}(g_{i} \times pg_{i})} {\sqrt {\sum_{i=0}^{2}(g_{i}^{2})} 
+\times \sqrt{\sum_{i=0}^{2}(pg_{i}^{2})} }
+\end{equation}
+
+\begin{equation}
+red\_sim = \frac{\sum_{i=0}^{1}(r_{i} \times pr_{i})} {\sqrt {\sum_{i=0}^{2}(r_{i}^{2})} 
+\times \sqrt{\sum_{i=0}^{2}(rb_{i}^{2})} }
+\end{equation}
+
+Those of you who are familiar with linear algebra know that, by equation 1, 
+\verb|blue_sim| is the cosine similarity between the vectors \verb|[b0, b1]| and \verb|[pb0, pb1]|. 
+By equation 2, \verb|green_sim| is the cosine similarity between the vectors \verb|[g0, g1]| and
+\verb|[pg0, pg1]|. Finally, by equation 3, \verb|red_sim| is the cosine similarity between
+the vectors \verb|[r0, r1]| and \verb|[pr0, pr1]|. If you have not had advanced math classes,
+do not worry - these equations have straightforward Py interpretations.
+Here is the Py interpreation of equation 1. The other two equations are interpreted similarly.
+
+\begin{verbatim}
+       bgr_sim = (b0*pb0 + b1*pb1)/(sqrt(b0**2 + b1**2) * sqrt(pb0**2 + pb1**2))
+\end{verbatim}
+
+The final BGR similarity score between $I$ and $P$ is computed as the average of \verb|blue_sim|,
+\verb|green_sim|, and \verb|red_sim| and will be between 0 and 1.
+
+The three hsv scores are computed in the same fashion.
+
+\begin{equation}
+hue\_sim = \frac{\sum_{i=0}^{1}(h_{i} \times ph_{i})} {\sqrt {\sum_{i=0}^{2}(h_{i}^{2})} 
+\times \sqrt{\sum_{i=0}^{2}(ph_{i}^{2})} }
+\end{equation}
+
+\begin{equation}
+saturation\_sim = \frac{\sum_{i=0}^{1}(s_{i} \times ps_{i})} {\sqrt {\sum_{i=0}^{2}(s_{i}^{2})} 
+\times \sqrt{\sum_{i=0}^{2}(ps_{i}^{2})} }
+\end{equation}
+
+\begin{equation}
+value\_sim = \frac{\sum_{i=0}^{1}(v_{i} \times pv_{i})} {\sqrt {\sum_{i=0}^{2}(v_{i}^{2})} 
+\times \sqrt{\sum_{i=0}^{2}(pv_{i}^{2})} }
+\end{equation}
+
+The final HSV similarity score between $I$ and $P$ is computed as the average of \verb|hue_sim|,
+\verb|saturation_sim|, and \verb|value_sim| and will be between 0 and 1. The GSL similarity
+is computed as the cosine similarity between \verb|gsl| and \verb|pgsl|.
+
+\begin{equation}
+gsl\_sim = \frac{\sum_{i=0}^{1}(gsl_{i} \times pgsl_{i})} {\sqrt {\sum_{i=0}^{2}(gsl_{i}^{2})} 
+\times \sqrt{\sum_{i=0}^{2}(pgsl_{i}^{2})} }
+\end{equation}
+
+In this fashion, we can compute the three similarity scores between the input image $I$ and each
+image indexed in \verb|BGR_INDEX|, \verb|HSV_INDEX|, and \verb|GSL_INDEX|. When all the scores
+are computed, the top one is selected for each space.
+
+\section{What To Submit}
+
+Implement the functions in \verb|image_index.py| and \verb|image_retrieval.py| in Py2 and submit
+them via Canvas. Do not submit the image files. This is a Py2 assignment only, because the RPi
+images you will use are configured to run with Py2 and OpenCV 3.0.0.
+
+\section{Additional Reading}
+
+For those of you who are mathematically inclined or just want to have some fun, here is an excellent
+wiki article on cosine similarity and its uses in various branches of math and science.
+
+\begin{verbatim}
+       https://en.wikipedia.org/wiki/Cosine_similarity
+\end{verbatim}
+
+Py dictionaries are as intuitive as Py arrays. Documentation on Py2 dictionaries is at the link
+below. Once on the URL, scroll down to Section 5.5.
+
+\begin{verbatim}
+       https://docs.python.org/2/tutorial/datastructures.html
+\end{verbatim}
+
+\vspace*{0.2in}
+\noindent
+Happy Hacking!
+
+\end{document}

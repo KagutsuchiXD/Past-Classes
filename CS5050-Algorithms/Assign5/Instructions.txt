@@ -1,0 +1,12 @@
+Instructions for running code.
+
+1. compile the .py file
+2. to run the highschool algorithm by itself call highschool(p, q),
+ with p and q being the polynomials you wish to multiply.
+3. to run the divide and conquer algorithm by itself call dc(p, q, n),
+ with p and q being the polynomials you wish to multiply and n being the
+ length of the arrays you are passing in.
+4. to run the empirical study, call empiricalstudy(). It will run each algorithm
+ 10 times for polynomial arrays of increasing size starting at size 32 and ending
+ at size 8,192. Then it will output the results to empiricalresults.txt and show 
+ the graph of the results when it is finished.

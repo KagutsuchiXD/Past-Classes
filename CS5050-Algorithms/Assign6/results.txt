@@ -1,0 +1,48 @@
+***************Results of Empirical Study***************
+For size of 32: 
+Runtime for Highschool Algorithm: 0.01561737060546875 seconds
+Runtime for Divide and Conquer 4 Subproblem Algorithm: 0.06252098083496094 seconds
+Runtime for Divide and Conquer 3 Subproblem Algorithm: 0.0 seconds
+****************************************************************
+For size of 64: 
+Runtime for Highschool Algorithm: 0.031234025955200195 seconds
+Runtime for Divide and Conquer 4 Subproblem Algorithm: 0.17180085182189941 seconds
+Runtime for Divide and Conquer 3 Subproblem Algorithm: 0.0469052791595459 seconds
+****************************************************************
+For size of 128: 
+Runtime for Highschool Algorithm: 0.07806634902954102 seconds
+Runtime for Divide and Conquer 4 Subproblem Algorithm: 0.7654802799224854 seconds
+Runtime for Divide and Conquer 3 Subproblem Algorithm: 0.12497091293334961 seconds
+****************************************************************
+For size of 256: 
+Runtime for Highschool Algorithm: 0.39049553871154785 seconds
+Runtime for Divide and Conquer 4 Subproblem Algorithm: 2.92118763923645 seconds
+Runtime for Divide and Conquer 3 Subproblem Algorithm: 0.3905313014984131 seconds
+****************************************************************
+For size of 512: 
+Runtime for Highschool Algorithm: 1.6343581676483154 seconds
+Runtime for Divide and Conquer 4 Subproblem Algorithm: 11.792694568634033 seconds
+Runtime for Divide and Conquer 3 Subproblem Algorithm: 1.1872236728668213 seconds
+****************************************************************
+For size of 1024: 
+Runtime for Highschool Algorithm: 6.323753118515015 seconds
+Runtime for Divide and Conquer 4 Subproblem Algorithm: 51.05928707122803 seconds
+Runtime for Divide and Conquer 3 Subproblem Algorithm: 3.507596969604492 seconds
+****************************************************************
+For size of 2048: 
+Runtime for Highschool Algorithm: 25.47312307357788 seconds
+Runtime for Divide and Conquer 4 Subproblem Algorithm: 188.88606142997742 seconds
+Runtime for Divide and Conquer 3 Subproblem Algorithm: 10.679729223251343 seconds
+****************************************************************
+For size of 4096: 
+Runtime for Highschool Algorithm: 105.01493453979492 seconds
+Runtime for Divide and Conquer 4 Subproblem Algorithm: 763.0002355575562 seconds
+Runtime for Divide and Conquer 3 Subproblem Algorithm: 32.077505588531494 seconds
+****************************************************************
+
+
+Slopes for each set of results: 
+
+Slope for Highschool Algorithm: 2.078721218550986
+Slope for DC 4 Subproblem Algorithm: 1.992220515039902
+Slope for DC 3 Subproblem Algorithm: 1.6007651606736872

@@ -1,0 +1,37 @@
+***************Results of Empirical Study***************
+For size of 32: 
+Runtime for Highschool Algorithm: 0.0 seconds
+Runtime for Divide and Conquer Algorithm: 0.053343772888183594 seconds
+****************************************************************
+For size of 64: 
+Runtime for Highschool Algorithm: 0.04686260223388672 seconds
+Runtime for Divide and Conquer Algorithm: 0.2695152759552002 seconds
+****************************************************************
+For size of 128: 
+Runtime for Highschool Algorithm: 0.1340317726135254 seconds
+Runtime for Divide and Conquer Algorithm: 0.9803144931793213 seconds
+****************************************************************
+For size of 256: 
+Runtime for Highschool Algorithm: 0.5459375381469727 seconds
+Runtime for Divide and Conquer Algorithm: 4.22805380821228 seconds
+****************************************************************
+For size of 512: 
+Runtime for Highschool Algorithm: 2.1907615661621094 seconds
+Runtime for Divide and Conquer Algorithm: 19.245038986206055 seconds
+****************************************************************
+For size of 1024: 
+Runtime for Highschool Algorithm: 8.442529439926147 seconds
+Runtime for Divide and Conquer Algorithm: 51.63980674743652 seconds
+****************************************************************
+For size of 2048: 
+Runtime for Highschool Algorithm: 24.14207673072815 seconds
+Runtime for Divide and Conquer Algorithm: 183.50863552093506 seconds
+****************************************************************
+For size of 4096: 
+Runtime for Highschool Algorithm: 96.77264666557312 seconds
+Runtime for Divide and Conquer Algorithm: 728.2806072235107 seconds
+****************************************************************
+For size of 8192: 
+Runtime for Highschool Algorithm: 387.4532322883606 seconds
+Runtime for Divide and Conquer Algorithm: 2935.6405334472656 seconds
+****************************************************************
