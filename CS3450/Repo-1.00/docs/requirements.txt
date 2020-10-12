@@ -1,0 +1,50 @@
+## Actors: ##
+admin
+bidder
+
+Activities:
+
+-Admin:
+Add items to an auction (setup) *
+Start auction (time based ok) *
+edit items *
+Enter live item winner
+Show all winners, with name, bidding number, items won, total cost
+End a silent action (time based ok) *
+Add bidders to an auction (registration process) *
+approve/monitor transactions
+
+-Bidder:
+Bid on a silent item
+List winning (or won) items with total price
+List items I'm bidding on
+outbid notification
+login *
+create account *
+
+
+300 Concurrent users
+
+Additional user requirements:
+User Profile
+scroll gallery with search bar at top
+Timer for silent auction (When it ends)
+balance of current bids and items won
+favorite items
+Fireworks on screen when item is won
+playlist of songs about winners when winning
+pop up of link of page when user is outbid
+List of:
+- items won
+- total
+- where to pick up items
+
+## Pages: ##
+-Admin:
+login
+add items page
+
+-Bidder:
+create account
+login
+view items available
